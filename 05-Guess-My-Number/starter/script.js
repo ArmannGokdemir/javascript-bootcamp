@@ -1,7 +1,7 @@
 'use strict';
 
 let number = Math.trunc(Math.random() * 20) + 1;
-let score = 5;
+let score = 20;
 let highscore = 0;
 
 console.log(number);
@@ -37,4 +37,15 @@ document.querySelector('.check').addEventListener('click', () => {
       scoreLabel.textContent = 0;
     }
   }
+});
+
+document.querySelector('.again').addEventListener('click', () => {
+  scoreLabel.textContent = 20;
+  score = 20;
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  document.querySelector('body').style.backgroundColor = '#222';
+  displayMessage('Start guessing...');
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('.guess').value = null;
+  document.querySelector('.number').style.width = '15rem';
 });
