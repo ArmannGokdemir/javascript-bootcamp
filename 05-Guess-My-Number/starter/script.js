@@ -1,32 +1,40 @@
 'use strict';
 
 let number = Math.trunc(Math.random() * 20) + 1;
-let score = 20;
+let score = 5;
 let highscore = 0;
 
 console.log(number);
-const numberInput = document.querySelector('.guess');
+
 const message = document.querySelector('.message');
 const secretNumber = document.querySelector('.number');
 const scoreLabel = document.querySelector('.score');
 
-const displayMessage = function (message) {
-  message.textContent = message;
+const displayMessage = function (mes) {
+  message.textContent = mes;
 };
 
 document.querySelector('.check').addEventListener('click', () => {
-  if (numberInput.value < number) {
-    displayMessage('Too Low!');
-    score--;
-    scoreLabel.textContent = score;
-  } else if (numberInput.value > number) {
-    displayMessage('Too High!');
-    score--;
-    scoreLabel.textContent = score;
-  } else if (numberInput.value == number) {
-    message.textContent = 'You Won! 🏆';
-    secretNumber.textContent = number;
-    document.querySelector('.highscore').textContent = score;
+  const guess = document.querySelector('.guess').value;
+  if (!guess) {
+    displayMessage('No number! 🛑');
+  } else if (guess == number) {
+    displayMessage('You Won! 🏆🎉');
+    document.querySelector('.number').textContent = number;
     document.querySelector('body').style.backgroundColor = '#60b347';
+    document.querySelector('.number').style.width = '30rem';
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
+  } else if (guess !== number) {
+    if (score > 1) {
+      displayMessage(guess > number ? 'Too High 📈' : 'Too Low 📉');
+      score--;
+      scoreLabel.textContent = score;
+    } else {
+      displayMessage('You Lost 😔');
+      scoreLabel.textContent = 0;
+    }
   }
 });
