@@ -7,14 +7,28 @@ const btnsOpenModal = document.querySelectorAll('.show-modal');
 
 console.log(btnsOpenModal);
 
+const closeModal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
 btnsOpenModal.forEach(element => {
   element.addEventListener('click', () => {
-    modal.classList.toggle('hidden');
-    overlay.classList.toggle('hidden');
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
   });
 });
 
 btnCloseModal.addEventListener('click', () => {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
+  closeModal();
+});
+
+overlay.addEventListener('click', function () {
+  closeModal();
+});
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
 });
