@@ -3,6 +3,7 @@
 let number = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highscore = 0;
+let gameOver = false;
 
 console.log(number);
 
@@ -18,11 +19,13 @@ document.querySelector('.check').addEventListener('click', () => {
   const guess = document.querySelector('.guess').value;
   if (!guess) {
     displayMessage('No number! 🛑');
-  } else if (guess == number) {
+  } else if (guess == number || gameOver) {
     displayMessage('You Won! 🏆🎉');
     document.querySelector('.number').textContent = number;
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.number').style.width = '30rem';
+    gameOver = true;
+
     if (score > highscore) {
       highscore = score;
       document.querySelector('.highscore').textContent = highscore;
@@ -42,10 +45,11 @@ document.querySelector('.check').addEventListener('click', () => {
 document.querySelector('.again').addEventListener('click', () => {
   scoreLabel.textContent = 20;
   score = 20;
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
+  Number = Math.trunc(Math.random() * 20) + 1;
   document.querySelector('body').style.backgroundColor = '#222';
   displayMessage('Start guessing...');
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = null;
   document.querySelector('.number').style.width = '15rem';
+  gameOver = false;
 });
