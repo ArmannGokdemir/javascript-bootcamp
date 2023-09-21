@@ -25,6 +25,11 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta ingredients ${ing1}  ${ing2} ${ing3}`
+    );
+  },
   openingHours: {
     thu: {
       open: 12,
@@ -40,42 +45,83 @@ const restaurant = {
     },
   },
 };
-//Destructring objects
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
 
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
+//spread operator
 
-console.log(restaurantName, hours, tags);
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+const newArr = [1, 2, ...arr];
+console.log(newArr);
+console.log(...newArr);
 
-// giving default values
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
 
-// mutating variables;
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
-({ a, b } = obj);
-console.log(a, b);
+// copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+console.log(mainMenuCopy);
+//join 2 arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+// spread operator bütün iterablelarda çalışır , string map set gibi
 
-// nested objects
+const str = "Arman";
+const letters = [...str];
+console.log(letters);
+// Real world example
+// const ingredients = [
+//   prompt("Let 's make pasta ingredient 1?"),
+//   prompt("Let 's make pasta ingredient 2?"),
+//   prompt("Let 's make pasta ingredient 3?"),
+// ];
+// restaurant.orderPasta(...ingredients);
+// console.log(ingredients);
 
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
+// es2018 sonrasında spread objeler ile de çalışmaya başladı
+const newRestaurant = {
+  foundedIn: 1999,
+  ...restaurant,
+  founder: "Arman",
+};
+console.log(newRestaurant);
 
-restaurant.orderDelivery({
-  time: "22:30",
-  address: "Via del sole, 21",
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// //Destructring objects
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+
+// console.log(restaurantName, hours, tags);
+
+// // giving default values
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// // mutating variables;
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// // nested objects
+
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
+
+// restaurant.orderDelivery({
+//   time: "22:30",
+//   address: "Via del sole, 21",
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 
 // Destructring Arrays
 // let [first, , second] = restaurant.categories;
