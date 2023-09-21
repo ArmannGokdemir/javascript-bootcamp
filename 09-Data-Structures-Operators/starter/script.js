@@ -15,30 +15,91 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    address,
+    time = "20:00",
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
 };
+//Destructring objects
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
 
-let [first, , second] = restaurant.categories;
-console.log(first, second);
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
 
-// switching values
-/*const temp = first;
-first = second;
-second = temp;
-console.log(first, second);*/
+console.log(restaurantName, hours, tags);
 
-[first, second] = [second, first];
-console.log(first, second);
+// giving default values
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
 
-//destructuring immediately
-const [starter, main] = restaurant.order(2, 0);
-console.log(starter, main);
+// mutating variables;
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj);
+console.log(a, b);
 
-// destructuring nested arrays
-const nested = [2, 4, [5, 6]];
-const [i, , [j, k]] = nested;
-console.log(i, j, k);
+// nested objects
 
-// Default values
+const {
+  fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
 
-const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r);
+restaurant.orderDelivery({
+  time: "22:30",
+  address: "Via del sole, 21",
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+// Destructring Arrays
+// let [first, , second] = restaurant.categories;
+// console.log(first, second);
+
+// // switching values
+// /*const temp = first;
+// first = second;
+// second = temp;
+// console.log(first, second);*/
+
+// [first, second] = [second, first];
+// console.log(first, second);
+
+// //destructuring immediately
+// const [starter, main] = restaurant.order(2, 0);
+// console.log(starter, main);
+
+// // destructuring nested arrays
+// const nested = [2, 4, [5, 6]];
+// const [i, , [j, k]] = nested;
+// console.log(i, j, k);
+
+// // Default values
+
+// const [p = 1, q = 1, r = 1] = [8, 9];
+// console.log(p, q, r);
