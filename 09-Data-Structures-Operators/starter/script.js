@@ -46,29 +46,44 @@ const restaurant = {
   },
 };
 
+// REST because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+//objects
+
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(sat, weekDays);
+
 //spread operator
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
-const newArr = [1, 2, ...arr];
-console.log(newArr);
-console.log(...newArr);
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+// console.log(...newArr);
 
-const newMenu = [...restaurant.mainMenu, "Gnocci"];
-console.log(newMenu);
+// const newMenu = [...restaurant.mainMenu, "Gnocci"];
+// console.log(newMenu);
 
-// copy array
-const mainMenuCopy = [...restaurant.mainMenu];
-console.log(mainMenuCopy);
-//join 2 arrays
-const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(menu);
-// spread operator bütün iterablelarda çalışır , string map set gibi
+// // copy array
+// const mainMenuCopy = [...restaurant.mainMenu];
+// console.log(mainMenuCopy);
+// //join 2 arrays
+// const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(menu);
+// // spread operator bütün iterablelarda çalışır , string map set gibi
 
-const str = "Arman";
-const letters = [...str];
-console.log(letters);
+// const str = "Arman";
+// const letters = [...str];
+// console.log(letters);
 // Real world example
 // const ingredients = [
 //   prompt("Let 's make pasta ingredient 1?"),
@@ -79,12 +94,12 @@ console.log(letters);
 // console.log(ingredients);
 
 // es2018 sonrasında spread objeler ile de çalışmaya başladı
-const newRestaurant = {
-  foundedIn: 1999,
-  ...restaurant,
-  founder: "Arman",
-};
-console.log(newRestaurant);
+// const newRestaurant = {
+//   foundedIn: 1999,
+//   ...restaurant,
+//   founder: "Arman",
+// };
+// console.log(newRestaurant);
 
 // //Destructring objects
 // const { name, openingHours, categories } = restaurant;
