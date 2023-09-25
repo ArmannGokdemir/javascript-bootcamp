@@ -49,32 +49,37 @@ const restaurant = {
   },
 };
 
+//nullish operator
+// Nullish = null and undefined
+const guestCorrect = "" ?? 10;
+console.log(guestCorrect);
+
 // use Any data type, return any datatype,
 //short-circuiting
 
 // OR operator
-console.log(3 || "Jonas");
-console.log("" || "Jonas");
-console.log(true || 0);
-console.log(undefined || null);
+// console.log(3 || "Jonas");
+// console.log("" || "Jonas");
+// console.log(true || 0);
+// console.log(undefined || null);
 
-const guests = restaurant.numGuests ? restaurant.numGuests : 10;
-console.log("guests number", guests);
+// const guests = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log("guests number", guests);
 
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
 
-// AND operator
-console.log("----AND----");
-console.log(0 && "Jonas"); // returns false value
-console.log("Jonas" && 0);
-console.log(7 && "Jonas");
+// // AND operator
+// console.log("----AND----");
+// console.log(0 && "Jonas"); // returns false value
+// console.log("Jonas" && 0);
+// console.log(7 && "Jonas");
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza("mushrooms", "spinach");
-}
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza("mushrooms", "spinach");
+// }
 
-restaurant.orderPizza && restaurant.orderPizza("spinach", "mozarella");
+// restaurant.orderPizza && restaurant.orderPizza("spinach", "mozarella");
 // REST because on LEFT side of =
 // const [a, b, ...others] = [1, 2, 3, 4, 5];
 // console.log(a, b, others);
