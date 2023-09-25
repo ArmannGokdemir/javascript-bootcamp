@@ -49,38 +49,64 @@ const restaurant = {
   },
 };
 
+// use Any data type, return any datatype,
+//short-circuiting
+
+// OR operator
+console.log(3 || "Jonas");
+console.log("" || "Jonas");
+console.log(true || 0);
+console.log(undefined || null);
+
+const guests = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log("guests number", guests);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+// AND operator
+console.log("----AND----");
+console.log(0 && "Jonas"); // returns false value
+console.log("Jonas" && 0);
+console.log(7 && "Jonas");
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach");
+}
+
+restaurant.orderPizza && restaurant.orderPizza("spinach", "mozarella");
 // REST because on LEFT side of =
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
-//objects
+// //objects
 
-const { sat, ...weekDays } = restaurant.openingHours;
-console.log(sat, weekDays);
+// const { sat, ...weekDays } = restaurant.openingHours;
+// console.log(sat, weekDays);
 
-// 2) Functions
-const add = function (...numbers) {
-  var deneme = 2;
-  console.log(numbers);
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  console.log(sum);
-};
+// // 2) Functions
+// const add = function (...numbers) {
+//   var deneme = 2;
+//   console.log(numbers);
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   console.log(sum);
+// };
 
-add(2, 3);
-add(5, 3, 7, 2);
+// add(2, 3);
+// add(5, 3, 7, 2);
 
-const x = [23, 5, 7];
-add(...x);
-restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
+// const x = [23, 5, 7];
+// add(...x);
+// restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
 
 //spread operator
 
