@@ -114,6 +114,35 @@ const rest2 = {
   owner: "Giovanni Rossi",
 };
 
+// Set
+// sets dont have duplicates it means that its elements are unique
+// different than arrays it doesnt have order inside
+const ordersSet = new Set([
+  "Pasta",
+  "Pizza",
+  "Pizza",
+  "Risotto",
+  "Pasta",
+  "Pizza",
+]);
+console.log(ordersSet);
+console.log(new Set("Jonas"));
+console.log(ordersSet.size);
+console.log(ordersSet.has("Pizza"));
+console.log(ordersSet.has("Bread"));
+ordersSet.add("Garlic Bread");
+ordersSet.add("Garlic Bread");
+ordersSet.delete("Risotto");
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order);
+
+//use case for sets
+const staff = ["Waiter", "chef", "Waiter", "manager", "manager"];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
 /* 
 Let's continue with our football betting app!
 
@@ -134,6 +163,7 @@ BONUS: Create an object called 'scorers' which contains the names of the players
 
 GOOD LUCK 😀
 */
+/*
 
 //1
 for (const [goal, player] of game.scored.entries()) {
