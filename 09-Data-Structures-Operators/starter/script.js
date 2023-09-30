@@ -58,6 +58,20 @@ const rest2 = {
   name: "La Piazza",
   owner: "Giovanni Rossi",
 };
+
+// for of loop
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// can still use continue and break
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i}:${el}`);
+  // console.log(`${item[0] + 1}: ${item[1]}`);
+}
+
 /*
 We're building a football betting app (soccer for my American friends 😅)!
 
@@ -75,6 +89,7 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 
 GOOD LUCK 😀
 */
+/*
 const game = {
   team1: "Bayern Munich",
   team2: "Borrussia Dortmund",
@@ -119,7 +134,7 @@ const game = {
 //1
 
 const [players1, players2] = game.players;
-console.log(players1);
+console.log(players1, players2);
 
 // 2
 const [gk, ...fieldPlayers] = players1;
@@ -137,10 +152,10 @@ console.log("team1 draw team2", team1, draw, team2);
 // 6
 const func = function (...playerNames) {
   console.log(playerNames);
-  console.log(`${length(playerNames)} goals was scored`);
+  console.log(`${playerNames.length} goals was scored`);
 };
-func();
-console.log();
+func("alex", "jimenez", "ronaldo");
+
 // 7
 team1 > team2 && console.log("team 1 wins 🏆");
 team2 > team1 && console.log("team 2 wins 🏆");
