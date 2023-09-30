@@ -74,6 +74,30 @@ const rest2 = {
   owner: "Giovanni Rossi",
 };
 
+//looping objects
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open for ${properties.length}:`;
+
+for (const day of properties) {
+  openStr += `${day},`;
+}
+
+console.log(openStr);
+//Property values
+const values = Object.values(openingHours);
+console.log(values);
+
+// values and keys together
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close ${close} `);
+}
+
+/*
 // optional chaining
 // optional chaining nearly always used with ?? nullish coalesing operator
 //only if monday exists then open gets executed
