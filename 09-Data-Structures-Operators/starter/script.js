@@ -74,6 +74,40 @@ const rest2 = {
   owner: "Giovanni Rossi",
 };
 
+// optional chaining
+// optional chaining nearly always used with ?? nullish coalesing operator
+//only if monday exists then open gets executed
+console.log(restaurant.openingHours.mon?.open);
+
+//Example
+
+const weekDays2 = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
+
+for (const day of weekDays2) {
+  // console.log(day);
+  const open = restaurant.openingHours[day]?.open ?? "closed"; // eğer bir objenin özelliğine erişmek için değişken kullanacaksak . notasyonu yerine [] kullanılır.
+  console.log(`On ${day},we open at ${open}`);
+}
+// Methods
+console.log(restaurant.order?.(0, 1) ?? "Method does not exist");
+console.log(restaurant.orderRisotto?.(0, 1) ?? "Method does not exist");
+
+//Arrays
+const users = [
+  {
+    name: "Arman",
+    email: "hello@arman.com",
+  },
+];
+console.log(users[0]?.name ?? "User array empty");
 /*const restaurant = {
   name: "Classico Italiano",
   location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -131,7 +165,7 @@ const rest2 = {
 // literal syntax and there are 3 more ways to write object literals
 // that came with ES6
 // Enhanced Object Literals
-console.log(restaurant);
+// console.log(restaurant);
 // for of loop
 /*
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
