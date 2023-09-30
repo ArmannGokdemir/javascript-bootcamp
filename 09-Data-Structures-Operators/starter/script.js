@@ -49,10 +49,37 @@ const restaurant = {
   },
 };
 
-//nullish operator
-// Nullish = null and undefined
-const guestCorrect = "" ?? 10;
-console.log(guestCorrect);
+const rest1 = {
+  name: "Capri",
+  // numGuests: 20,
+  numGuests: 0,
+};
+const rest2 = {
+  name: "La Piazza",
+  owner: "Giovanni Rossi",
+};
+
+// OR assignment operator
+// rest1.numberGuests = rest1.numGuests || 10;
+// rest2.numberGuests = rest2.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+// rest1.owner = rest1.owner && "<ANONYMOUS>";
+// rest2.owner = rest2.owner && "<ANONYMOUS>";
+
+rest1.owner &&= "<ANONYMOUS>";
+rest2.owner &&= "<ANONYMOUS>";
+console.log(rest1);
+console.log(rest2);
+
+// //nullish operator
+// // Nullish = null and undefined NOT(0 , empty string)
+// acts like 0 and empty string not falsy
+// const guestCorrect = 0 ?? 10;
+// console.log(guestCorrect);
 
 // use Any data type, return any datatype,
 //short-circuiting
