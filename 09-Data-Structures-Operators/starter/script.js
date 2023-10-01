@@ -114,6 +114,30 @@ const rest2 = {
   owner: "Giovanni Rossi",
 };
 
+//maps
+const rest = new Map();
+rest.set("name", "Classico Italiano");
+rest.set(1, "Firenze, Italy"); // set not just only updates the map but it returns the map too
+console.log(rest.set(2, "Lisbon, Portugal"));
+rest
+  .set("categories", ["Italian", "Pizzeria", "Vegeterian", "Organic"])
+  .set("Open", 11)
+  .set("Close", 23)
+  .set(true, "We are open")
+  .set(false, "We are closed");
+console.log(rest.get("name"));
+const time = 21;
+console.log(rest.get(time > rest.get("Open") && time < rest.get("Close"))); // not so readeble so dont use it too much arman
+
+console.log(rest.has("categories"));
+rest.delete(2);
+rest.set(document.querySelector("h1"), "Heading");
+console.log(rest);
+console.log(rest.size);
+const arr = [1, 2];
+rest.set(arr, "test");
+console.log(rest.get(arr));
+/*
 // Set
 // sets dont have duplicates it means that its elements are unique
 // different than arrays it doesnt have order inside
