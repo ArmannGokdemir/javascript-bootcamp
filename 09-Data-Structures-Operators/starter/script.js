@@ -116,6 +116,47 @@ const rest2 = {
 //Working with strings
 const airline = "TAP Air Portugal";
 const plane = "A320";
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+const passenger = "ArMaN";
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// comparing emails
+const email = "arman@arman.io";
+const loginEmail = " Hello@Jonas.Io \n";
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+const normalizedMail = loginEmail.toLowerCase().trim();
+console.log(normalizedMail);
+
+// replacing
+const priceGB = "288,97£";
+const priceUS = priceGB.replace("£", "$").replace(",", ".");
+console.log(priceUS);
+
+const announcement =
+  "All passengers come to boarding door 23. Boarding door 23";
+console.log(announcement.replace("door", "gate"));
+// console.log(announcement.replaceAll("a", "b"));
+
+console.log(announcement.replace(/door/g, "gate"));
+//all string methods are case sensitive
+
+//booleans
+const plane2 = "Airbus A320neo";
+console.log(plane2.includes("A320"));
+console.log(plane2.startsWith("Airbus"));
+
+if (plane2.startsWith("Airbus") && plane2.endsWith("neo"))
+  console.log("part of the new airbus family");
+
+/*
 console.log(plane.indexOf("A"));
 console.log(airline.lastIndexOf("r"));
 console.log(airline.indexOf("Portugal"));
@@ -132,7 +173,7 @@ const checkMiddleSeat = function (seat) {
   if (s === "B" || s === "E") console.log("You got the middle seat 😔");
   else console.log("You got lucky 📈");
 };
-
+// stringlerde methodları kullanmamızı js'nin boxing özelliği sağlıyor.
 checkMiddleSeat("11B");
 checkMiddleSeat("11A");
 
